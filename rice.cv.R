@@ -77,7 +77,7 @@ if(models=="pcr"|models=="plsr"){
    r2.array<-do.call(cbind,r2.array)
    ncomp<-r2.array[1,1]
    r2.array<-r2.array[-1,]
-   r2.array<-as.data.frame(cbind(0:ncomp,r2.array))
+   r2.array<-as.data.frame(cbind(1:ncomp,r2.array))
    names(r2.array)<-c("ncomp",phename)
    opfn<-paste("./DataOut/Rice.",datatype,"/",datatype,".",models,".cv.csv",sep="")
    write.csv(r2.array,file=opfn,row.names=FALSE)
