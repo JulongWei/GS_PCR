@@ -1,5 +1,5 @@
 ###function-mixed.e
-mixed.e<-function(dataframe,gen=NULL,kk.eigen,stability=TRUE){
+mixed.e<-function(dataframe,kk.eigen,stability=FALSE){
 #
    d<-dataframe
    y<-as.matrix(d[,1])
@@ -83,11 +83,5 @@ if(stability){
    random<-uu%*%(dd*yt)
    #
    rr<-list(fixed=fixed,vfixed=vfixed,random=random,sg2=sg2,se2=se2,lambda=lambda,lrt=lrt,lrt.p=lrt.p) 
-   class(rr)<-"mixed" 
-   if(!is.null(gen)){ 
-     cc<-qq[[3]]
-     markers<-t(z)%*%uu%*%((1/cc)*lambda*h*yt)
-     rr$markers<-markers
-   }
    return(rr)
 }
